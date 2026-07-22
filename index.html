@@ -121,7 +121,7 @@ header.nav.solid .burger span{background:#f5c518;}
     radial-gradient(ellipse at 48% 48%, rgba(202,183,241,0.5) 0%, transparent 46%),
     linear-gradient(135deg, #fffbed 0%, #fff1c7 42%, #f5eaff 100%);
 }
-.hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center;}
+.hero-grid{display:grid;grid-template-columns:1.05fr 0.76fr;gap:60px;align-items:center;}
 .hero h1{font-size:clamp(40px,5.6vw,66px);}
 .hero h1 em{font-style:italic;color:var(--rose-gold-deep);}
 .hero p.lede{margin-top:22px;max-width:460px;font-size:17px;line-height:1.75;color:var(--text);}
@@ -221,6 +221,7 @@ header.nav.solid .burger span{background:#f5c518;}
   box-shadow:var(--shadow);
 }
 .about-art .ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,0.5);}
+.about-infographic{position:absolute;inset:0;width:100%;height:100%;}
 .about-copy h2{font-size:clamp(28px,3.6vw,42px);margin-bottom:20px;}
 .about-copy p{color:var(--text);font-size:16px;line-height:1.8;margin-bottom:16px;}
 .about-list{display:flex;flex-direction:column;gap:14px;margin-top:26px;}
@@ -278,9 +279,11 @@ header.nav.solid .burger span{background:#f5c518;}
 /* -------- BENEFITS / COMPARISON -------- */
 .benefits-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
 .benefit-card{
-  background:#fff;border-radius:20px;padding:26px 28px;display:flex;gap:18px;align-items:flex-start;
+  border-radius:20px;padding:26px 28px;display:flex;gap:18px;align-items:flex-start;
   box-shadow:0 14px 34px -22px rgba(154,110,140,0.35);
+  transition:transform .3s ease, box-shadow .3s ease;
 }
+.benefit-card:hover{transform:translateY(-6px);box-shadow:0 22px 44px -20px rgba(154,110,140,0.45);}
 .check-circle{
   width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--rose-gold),var(--rose-gold-deep));
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
@@ -288,39 +291,19 @@ header.nav.solid .burger span{background:#f5c518;}
 .check-circle svg{width:18px;height:18px;stroke:#fff;stroke-width:3;}
 .benefit-card h4{font-size:16.5px;margin-bottom:6px;}
 .benefit-card p{font-size:13.5px;color:var(--text);line-height:1.6;}
+.benefit-card:nth-child(1){background:linear-gradient(155deg,#fdeef4 0%,#fbdce8 100%);}
+.benefit-card:nth-child(1) .check-circle{background:linear-gradient(135deg,var(--rose-gold),var(--rose-gold-deep));}
+.benefit-card:nth-child(2){background:linear-gradient(155deg,#eee7fb 0%,#ddd0f7 100%);}
+.benefit-card:nth-child(2) .check-circle{background:linear-gradient(135deg,var(--lavender-deep),var(--plum-soft));}
+.benefit-card:nth-child(3){background:linear-gradient(155deg,#fff6dd 0%,#fbe9b8 100%);}
+.benefit-card:nth-child(3) .check-circle{background:linear-gradient(135deg,#f7d85a,#eab308);}
+.benefit-card:nth-child(4){background:linear-gradient(155deg,#f7e3df 0%,#eecdc6 100%);}
+.benefit-card:nth-child(4) .check-circle{background:linear-gradient(135deg,var(--rose-gold-deep),var(--plum-soft));}
+.benefit-card:nth-child(5){background:linear-gradient(155deg,#efe6f0 0%,#ddc9e0 100%);}
+.benefit-card:nth-child(5) .check-circle{background:linear-gradient(135deg,var(--plum-soft),var(--plum));}
+.benefit-card:nth-child(6){background:linear-gradient(155deg,#e6ecfb 0%,#cfd9f5 100%);}
+.benefit-card:nth-child(6) .check-circle{background:linear-gradient(135deg,var(--lavender-deep),var(--rose-gold-deep));}
 @media (max-width:800px){.benefits-grid{grid-template-columns:1fr;}}
-
-/* -------- GALLERY (illustrated masonry, no stock photography) -------- */
-.gallery-toolbar{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:0 auto 24px;}
-.gallery-note{max-width:640px;font-size:13.5px;color:var(--text);}
-.gallery-controls{display:flex;gap:10px;flex-shrink:0;}.gallery-control{width:44px;height:44px;border:1px solid rgba(219,167,159,0.35);border-radius:50%;background:#fff;color:var(--plum);font-size:22px;line-height:1;cursor:pointer;box-shadow:0 10px 22px -16px rgba(154,110,140,0.55);transition:transform .2s ease,background .2s ease;}.gallery-control:hover{background:var(--blush);transform:translateY(-2px);}
-.masonry{display:flex;gap:20px;overflow-x:auto;padding:4px 2px 20px;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;}
-.masonry::-webkit-scrollbar{display:none;}
-.tile{
-  flex:0 0 min(300px,78vw);scroll-snap-align:start;border-radius:20px;overflow:hidden;position:relative;
-  cursor:pointer;box-shadow:0 14px 30px -18px rgba(154,110,140,0.4);
-}
-.tile-art{width:100%;display:flex;align-items:center;justify-content:center;position:relative;transition:transform .5s ease;}
-.tile:hover .tile-art{transform:scale(1.06);}
-.tile-cap{
-  position:absolute;bottom:0;left:0;right:0;padding:16px 18px;
-  background:linear-gradient(0deg, rgba(58,36,64,0.75), transparent);
-  color:#fff;font-size:13px;font-weight:600;
-}
-.tile1{height:260px;background:linear-gradient(160deg,var(--lavender-deep),var(--rose-gold));}
-.tile2{height:180px;background:linear-gradient(160deg,var(--rose-gold),var(--blush-deep));}
-.tile3{height:230px;background:linear-gradient(160deg,var(--plum-soft),var(--lavender-deep));}
-.tile4{height:200px;background:linear-gradient(160deg,var(--rose-gold-deep),var(--lavender));}
-.tile5{height:250px;background:linear-gradient(160deg,var(--lavender),var(--rose-gold-deep));}
-.tile6{height:190px;background:linear-gradient(160deg,var(--blush-deep),var(--plum-soft));}
-@media (max-width:560px){.gallery-toolbar{align-items:flex-end;}.gallery-note{font-size:12px;}.gallery-control{width:38px;height:38px;}}
-.lightbox{
-  position:fixed;inset:0;background:rgba(58,36,64,0.9);z-index:3000;display:none;
-  align-items:center;justify-content:center;padding:40px;
-}
-.lightbox.open{display:flex;}
-.lightbox-inner{width:100%;max-width:520px;aspect-ratio:4/3;border-radius:24px;position:relative;}
-.lightbox-close{position:absolute;top:-46px;right:0;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;}
 
 /* -------- REVIEWS -------- */
 .slider{position:relative;max-width:760px;margin:0 auto;overflow:hidden;}
@@ -354,6 +337,33 @@ header.nav.solid .burger span{background:#f5c518;}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
 .faq-a p{padding:0 4px 24px;font-size:14.5px;color:var(--text);line-height:1.7;max-width:640px;}
 
+/* -------- COUPON + SHARE STRIP -------- */
+.band-slim{padding:48px 0;background:linear-gradient(120deg,var(--blush) 0%, var(--lavender) 100%);position:relative;overflow:hidden;}
+.promo-strip{display:flex;align-items:center;justify-content:space-between;gap:44px;flex-wrap:wrap;}
+.promo-coupon,.promo-share{flex:1 1 320px;min-width:280px;}
+.promo-label{text-transform:uppercase;letter-spacing:0.14em;font-size:11px;font-weight:700;color:var(--rose-gold-deep);}
+.coupon-box{display:flex;align-items:center;gap:14px;margin-top:12px;background:#fff;border:1.5px dashed var(--rose-gold-deep);border-radius:14px;padding:12px 12px 12px 20px;max-width:320px;}
+.coupon-code{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;letter-spacing:0.1em;color:var(--plum);flex:1;}
+.copy-btn{background:linear-gradient(120deg,var(--rose-gold),var(--rose-gold-deep));color:#fff;border:none;padding:10px 18px;border-radius:999px;font-weight:700;font-size:12px;cursor:pointer;white-space:nowrap;transition:transform .2s ease, background .3s ease;}
+.copy-btn:hover{transform:translateY(-2px);}
+.copy-btn.copied{background:linear-gradient(120deg,#7cbf8a,#5a9e68);}
+.promo-sub{margin-top:10px;font-size:13.5px;color:var(--text);line-height:1.6;}
+.promo-divider{width:1px;align-self:stretch;background:linear-gradient(180deg,transparent,rgba(219,167,159,0.5),transparent);}
+.share-icons{display:flex;gap:12px;margin-top:16px;}
+.share-btn{width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px -14px rgba(154,110,140,0.5);border:none;cursor:pointer;transition:transform .2s ease, box-shadow .2s ease;}
+.share-btn:hover{transform:translateY(-3px);box-shadow:0 16px 28px -14px rgba(154,110,140,0.6);}
+.share-btn svg{width:19px;height:19px;}
+.share-btn.whatsapp svg{fill:#25D366;stroke:none;}
+.share-btn.facebook svg{stroke:var(--plum-soft);fill:none;}
+.share-btn.copy-link svg{stroke:var(--rose-gold-deep);fill:none;}
+.share-btn.copy-link.copied svg{stroke:#5a9e68;}
+@media (max-width:700px){
+  .promo-strip{flex-direction:column;text-align:center;}
+  .promo-divider{display:none;}
+  .coupon-box{margin-left:auto;margin-right:auto;}
+  .share-icons{justify-content:center;}
+}
+
 /* -------- CONTACT -------- */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
 .contact-card{
@@ -376,12 +386,11 @@ header.nav.solid .burger span{background:#f5c518;}
 .social-row a{width:42px;height:42px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px -14px rgba(154,110,140,0.4);}
 .social-row svg{width:18px;height:18px;stroke:var(--rose-gold-deep);}
 .map-placeholder{
-  height:150px;border-radius:18px;background:
-    repeating-linear-gradient(45deg, var(--lavender) 0 2px, transparent 2px 14px),
-    var(--blush-deep);
-  display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--text);
+  height:150px;border-radius:18px;overflow:hidden;background:var(--blush-deep);
+  display:flex;align-items:center;justify-content:center;
   border:1px dashed var(--lavender-deep);
 }
+.map-placeholder svg{width:100%;height:100%;}
 .whatsapp-btn{
   display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;
   padding:14px 24px;border-radius:999px;font-weight:700;font-size:14px;margin-top:10px;
@@ -433,11 +442,12 @@ header.nav.solid .burger span{background:#f5c518;}
 .app-phone::before{content:"";display:block;width:78px;height:15px;border-radius:0 0 12px 12px;background:var(--plum);margin:-24px auto 25px;}
 .app-phone-brand{font-family:'Cormorant Garamond',serif;text-align:center;color:#fff;font-size:27px;font-weight:700;letter-spacing:0.04em;}
 .app-phone-copy{color:rgba(255,255,255,0.82);text-align:center;font-size:10px;line-height:1.6;margin-top:10px;}
-.app-phone-card{margin-top:28px;padding:15px 13px;border-radius:16px;background:rgba(255,255,255,0.92);color:var(--plum);font-size:11px;font-weight:700;box-shadow:0 12px 22px -14px rgba(58,36,64,0.5);}
+.app-phone-chart{width:100%;margin-top:22px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,0.14);}
+.app-phone-card{margin-top:16px;padding:15px 13px;border-radius:16px;background:rgba(255,255,255,0.92);color:var(--plum);font-size:11px;font-weight:700;box-shadow:0 12px 22px -14px rgba(58,36,64,0.5);}
 .app-phone-card span{display:block;margin-top:5px;font-size:9px;font-weight:500;color:var(--text);}
 .app-content{position:relative;z-index:1;}.app-content h2{font-size:clamp(32px,4vw,48px);margin:14px 0 16px;}.app-content>p{max-width:520px;color:var(--text);font-size:15.5px;line-height:1.75;}
 .store-list{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;}.store-card{min-width:178px;display:flex;align-items:center;gap:11px;padding:12px 17px;border-radius:14px;background:var(--plum);color:#fff;opacity:0.78;cursor:default;}.store-icon{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:28px;line-height:1;}.store-icon svg{width:25px;height:25px;fill:#fff;}.store-card small{display:block;font-size:9px;letter-spacing:0.04em;color:rgba(255,255,255,0.68);}.store-card strong{display:block;font-size:14px;margin-top:2px;}.coming-label{display:inline-flex;margin-top:23px;padding:7px 12px;border-radius:999px;background:rgba(193,131,122,0.16);color:var(--rose-gold-deep);font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;}
-@media (max-width:800px){.app-promo{grid-template-columns:1fr;padding:45px 28px;text-align:center;gap:35px;}.app-content>p{margin:0 auto;}.store-list{justify-content:center;}.app-phone{height:350px;width:180px;}.app-phone-card{margin-top:18px;}.app-phone::before{margin-bottom:20px;}}
+@media (max-width:800px){.app-promo{grid-template-columns:1fr;padding:45px 28px;text-align:center;gap:35px;}.app-content>p{margin:0 auto;}.store-list{justify-content:center;}.app-phone{height:350px;width:180px;}.app-phone-chart{margin-top:14px;padding:8px 10px;}.app-phone-card{margin-top:12px;}.app-phone::before{margin-bottom:20px;}}
 
 /* -------- CYCLE TRACKER -------- */
 .cycle-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}.cycle-copy h2{font-size:clamp(32px,4vw,48px);margin:14px 0 18px;}.cycle-copy>p{color:var(--text);font-size:15.5px;line-height:1.75;max-width:500px;}.cycle-points{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px;}.cycle-point{padding:16px;border-radius:16px;background:#fff;box-shadow:0 12px 24px -18px rgba(154,110,140,0.4);font-size:12px;font-weight:700;color:var(--plum-soft);}.cycle-point b{display:block;color:var(--rose-gold-deep);font-size:18px;margin-bottom:4px;}
@@ -481,6 +491,33 @@ footer .container{position:relative;z-index:1;}
 @media (max-width:850px){.foot-grid{grid-template-columns:repeat(2,1fr);gap:34px;}.foot-brand{grid-column:1/-1;}}
 @media (max-width:520px){footer{padding-top:64px;}.foot-grid{grid-template-columns:1fr;gap:24px;}.newsletter{max-width:100%;}.foot-col h5{margin-bottom:9px;}.foot-bottom{padding-top:20px;}}
 
+/* -------- TEAM -------- */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+.team-card{
+  background:#fff;border-radius:24px;padding:40px 26px 32px;text-align:center;position:relative;overflow:hidden;
+  box-shadow:0 14px 40px -22px rgba(154,110,140,0.4);border:1px solid rgba(219,167,159,0.15);
+  transition:transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease;
+}
+.team-card::before{content:"";position:absolute;top:-50%;left:-20%;width:70%;height:70%;background:radial-gradient(circle, rgba(245,197,24,0.14), transparent 70%);pointer-events:none;}
+.team-card:hover{transform:translateY(-10px);box-shadow:0 30px 60px -24px rgba(154,110,140,0.55);}
+.team-avatar{
+  width:88px;height:88px;border-radius:50%;margin:0 auto 20px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-weight:700;font-size:28px;color:#fff;
+  background:linear-gradient(135deg,var(--rose-gold),var(--rose-gold-deep));
+  box-shadow:0 14px 28px -10px rgba(193,131,122,0.55);
+}
+.team-avatar::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1.5px solid rgba(245,197,24,0.55);}
+.team-card h3{font-size:19px;margin-bottom:4px;position:relative;}
+.team-role{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose-gold-deep);margin-bottom:14px;position:relative;}
+.team-bio{font-size:13.5px;color:var(--text);line-height:1.65;margin-bottom:18px;position:relative;}
+.team-social{display:flex;justify-content:center;gap:10px;position:relative;}
+.team-social a{width:34px;height:34px;border-radius:50%;background:var(--blush);display:flex;align-items:center;justify-content:center;transition:background .25s ease, transform .25s ease;}
+.team-social a:hover{background:var(--lavender-deep);transform:translateY(-2px);}
+.team-social svg{width:14px;height:14px;stroke:var(--rose-gold-deep);}
+@media (max-width:1000px){.team-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:560px){.team-grid{grid-template-columns:1fr;}}
+
 /* -------- back to top -------- */
 .back-top{
   position:fixed;bottom:28px;right:28px;width:48px;height:48px;border-radius:50%;
@@ -515,7 +552,7 @@ footer .container{position:relative;z-index:1;}
       <li><a href="#benefits" data-nav>Benefits</a></li>
       <li><a href="#reviews" data-nav>Reviews</a></li>
       <li><a href="#faq" data-nav>FAQ</a></li>
-      <li><a href="#gallery" data-nav>Gallery</a></li>
+      <li><a href="#team" data-nav>Team</a></li>
       <li><a href="#contact" data-nav>Contact</a></li>
       <li><a href="#buy" class="nav-buy" data-nav>Buy Now</a></li>
     </ul>
@@ -592,7 +629,6 @@ footer .container{position:relative;z-index:1;}
           </div>
         </div>
       </div>
-      <p class="stage-caption">Move your cursor over the pack</p>
     </div>
   </div>
 </section>
@@ -603,6 +639,25 @@ footer .container{position:relative;z-index:1;}
     <div class="about-art reveal left">
       <div class="ring" style="width:70%;height:70%;top:15%;left:15%;"></div>
       <div class="ring" style="width:45%;height:45%;top:27%;left:27%;"></div>
+      <svg class="about-infographic" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+        <circle cx="100" cy="100" r="64" stroke="#fff" stroke-width="1.4" stroke-dasharray="3 7" opacity="0.7"/>
+        <g stroke="#fff" stroke-width="2.4" stroke-linecap="round">
+          <path d="M100 46v18M100 136v18M46 100h18M136 100h18"/>
+        </g>
+        <circle cx="100" cy="100" r="34" fill="rgba(255,255,255,0.16)" stroke="#fff" stroke-width="1.6"/>
+        <text x="100" y="95" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="700" font-size="22" fill="#fff">98%</text>
+        <text x="100" y="112" text-anchor="middle" font-family="Manrope, sans-serif" font-size="7" letter-spacing="1" fill="#fff" opacity="0.85">SATISFACTION</text>
+        <g font-family="Manrope, sans-serif" font-size="8" fill="#fff" opacity="0.92">
+          <circle cx="100" cy="30" r="4.5" fill="#fff"/>
+          <text x="100" y="20" text-anchor="middle">50K+ Women</text>
+          <circle cx="170" cy="100" r="4.5" fill="#fff"/>
+          <text x="170" y="118" text-anchor="middle">4mm Thin</text>
+          <circle cx="100" cy="170" r="4.5" fill="#fff"/>
+          <text x="100" y="188" text-anchor="middle">24Hr Protection</text>
+          <circle cx="30" cy="100" r="4.5" fill="#fff"/>
+          <text x="30" y="118" text-anchor="middle">Made in India</text>
+        </g>
+      </svg>
     </div>
     <div class="about-copy reveal right">
       <p class="eyebrow">Our Story</p>
@@ -685,60 +740,6 @@ footer .container{position:relative;z-index:1;}
   </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery" class="band band-white">
-  <div class="container">
-    <div class="sec-head reveal up">
-      <p class="eyebrow" style="justify-content:center;">Gallery</p>
-      <h2>A closer look.</h2>
-    </div>
-    <div class="gallery-toolbar">
-      <p class="gallery-note">Editorial illustrations of the Nari Plus world — click any tile to view larger.</p>
-      <div class="gallery-controls" aria-label="Gallery controls">
-        <button class="gallery-control" type="button" onclick="scrollGallery(-1)" aria-label="Previous gallery images">&#8249;</button>
-        <button class="gallery-control" type="button" onclick="scrollGallery(1)" aria-label="Next gallery images">&#8250;</button>
-      </div>
-    </div>
-    <div class="masonry" id="galleryScroll">
-      <div class="tile reveal zoom" onclick="openLightbox('tile1')"><div class="tile-art tile1"></div><div class="tile-cap">Soft Cotton Feel</div></div>
-      <div class="tile reveal zoom" onclick="openLightbox('tile2')"><div class="tile-art tile2"></div><div class="tile-cap">XL Overnight Pack</div></div>
-      <div class="tile reveal zoom" onclick="openLightbox('tile3')"><div class="tile-art tile3"></div><div class="tile-cap">Everyday Confidence</div></div>
-      <div class="tile reveal zoom" onclick="openLightbox('tile4')"><div class="tile-art tile4"></div><div class="tile-cap">Gel-Lock Core</div></div>
-      <div class="tile reveal zoom" onclick="openLightbox('tile5')"><div class="tile-art tile5"></div><div class="tile-cap">Made In India</div></div>
-      <div class="tile reveal zoom" onclick="openLightbox('tile6')"><div class="tile-art tile6"></div><div class="tile-cap">Premium Packaging</div></div>
-    </div>
-  </div>
-</section>
-
-<div class="lightbox" id="lightbox">
-  <div class="lightbox-inner" id="lightboxInner">
-    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-  </div>
-</div>
-
-<!-- REVIEWS -->
-<section id="reviews" class="band band-lav">
-  <div class="container">
-    <div class="sec-head reveal up">
-      <p class="eyebrow" style="justify-content:center;">Loved Nationwide</p>
-      <h2>What women are saying.</h2>
-    </div>
-    <div class="slider reveal up">
-      <button class="slider-arrow prev" onclick="moveSlide(-1)" aria-label="Previous">&#8249;</button>
-      <div class="slides" id="slides">
-        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">I switched to the XL pack for night shifts and haven't looked back — genuinely dry by morning.</p><div class="test-who"><div class="test-avatar">P</div><b>Priya S.</b><span>Nurse, Lucknow</span></div></div></div>
-        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">The thinness surprised me most. I forget I'm wearing it, after years of bulky pads that feels like a small miracle.</p><div class="test-who"><div class="test-avatar">A</div><b>Anjali R.</b><span>Teacher, Patna</span></div></div></div>
-        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">No irritation even on my heaviest days. My local store now keeps it stocked because I asked twice.</p><div class="test-who"><div class="test-avatar">M</div><b>Meera K.</b><span>Student, Ranchi</span></div></div></div>
-        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">Finally a pad that feels premium without the premium price. My whole family has switched.</p><div class="test-who"><div class="test-avatar">S</div><b>Sunita D.</b><span>Homemaker, Jaipur</span></div></div></div>
-        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">The odour control genuinely works — I feel confident through 10-hour college days.</p><div class="test-who"><div class="test-avatar">R</div><b>Riya M.</b><span>Student, Indore</span></div></div></div>
-        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">Recommended by my sister, now I recommend it to everyone I know. Simple as that.</p><div class="test-who"><div class="test-avatar">K</div><b>Kavita N.</b><span>Designer, Pune</span></div></div></div>
-      </div>
-      <button class="slider-arrow next" onclick="moveSlide(1)" aria-label="Next">&#8250;</button>
-      <div class="slider-dots" id="sliderDots"></div>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section id="faq" class="band band-white">
   <div class="container">
@@ -758,38 +759,106 @@ footer .container{position:relative;z-index:1;}
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="band band-lav">
+<!-- COUPON + SHARE -->
+<section id="offer" class="band-slim">
+  <div class="container promo-strip">
+    <div class="promo-coupon reveal left">
+      <span class="promo-label">Limited Time Offer</span>
+      <div class="coupon-box">
+        <span class="coupon-code">NARI10</span>
+        <button class="copy-btn" onclick="copyCoupon(this)">Copy Code</button>
+      </div>
+      <p class="promo-sub">Use this code to get 10% off your first order.</p>
+    </div>
+    <div class="promo-divider" aria-hidden="true"></div>
+    <div class="promo-share reveal right">
+      <span class="promo-label">Share The Care</span>
+      <p class="promo-sub">Tell your friends and family about Nari Plus.</p>
+      <div class="share-icons">
+        <a class="share-btn whatsapp" aria-label="Share on WhatsApp" target="_blank" rel="noopener" href="https://wa.me/?text=Check%20out%20Nari%20Plus%20%E2%80%94%20premium%20sanitary%20pads%20engineered%20for%20comfort%20and%20protection.">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.35 1.29 4.8L2 22l5.42-1.4a9.9 9.9 0 0 0 4.62 1.18h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.64-1.03-5.13-2.9-6.99A9.82 9.82 0 0 0 12.04 2z"/></svg>
+        </a>
+        <a class="share-btn facebook" aria-label="Share on Facebook" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=https://nariplus.in">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <button class="share-btn copy-link" aria-label="Copy share link" onclick="copyShareLink(this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11.5 4.5"/><path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07l1.24-1.24"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="band band-white">
   <div class="container">
     <div class="sec-head reveal up">
-      <p class="eyebrow" style="justify-content:center;">Get In Touch</p>
-      <h2>We'd love to hear from you.</h2>
+      <p class="eyebrow" style="justify-content:center;">Loved Nationwide</p>
+      <h2>What women are saying.</h2>
     </div>
-    <div class="contact-grid">
-      <div class="contact-card reveal left">
-        <h3>Send a message</h3>
-        <form id="contactForm" onsubmit="return handleContact(event)">
-          <div class="form-field"><input type="text" placeholder="Your Name" required></div>
-          <div class="form-field"><input type="email" placeholder="Your Email" required></div>
-          <div class="form-field"><textarea placeholder="Your Message" required></textarea></div>
-          <button type="submit" class="btn-primary" data-ripple style="width:100%;">Send Message</button>
-          <p id="contactMsg" style="margin-top:14px;font-size:13px;color:var(--rose-gold-deep);display:none;">Thank you — we'll be in touch shortly.</p>
-        </form>
+    <div class="slider reveal up">
+      <button class="slider-arrow prev" onclick="moveSlide(-1)" aria-label="Previous">&#8249;</button>
+      <div class="slides" id="slides">
+        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">I switched to the XL pack for night shifts and haven't looked back — genuinely dry by morning.</p><div class="test-who"><div class="test-avatar">P</div><b>Priya S.</b><span>Nurse, Begusarai</span></div></div></div>
+        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">The thinness surprised me most. I forget I'm wearing it, after years of bulky pads that feels like a small miracle.</p><div class="test-who"><div class="test-avatar">A</div><b>Anjali R.</b><span>Teacher, Patna</span></div></div></div>
+        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">No irritation even on my heaviest days. My local store now keeps it stocked because I asked twice.</p><div class="test-who"><div class="test-avatar">M</div><b>Meera K.</b><span>Student, Ranchi</span></div></div></div>
+        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">Finally a pad that feels premium without the premium price. My whole family has switched.</p><div class="test-who"><div class="test-avatar">S</div><b>Sunita D.</b><span>Homemaker, Jaipur</span></div></div></div>
+        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">The odour control genuinely works — I feel confident through 10-hour college days.</p><div class="test-who"><div class="test-avatar">R</div><b>Riya M.</b><span>Student, Indore</span></div></div></div>
+        <div class="slide"><div class="test-card"><div class="stars">★★★★★</div><p class="quote">Recommended by my sister, now I recommend it to everyone I know. Simple as that.</p><div class="test-who"><div class="test-avatar">K</div><b>Kavita N.</b><span>Designer, Pune</span></div></div></div>
       </div>
-      <div class="reveal right">
-        <div class="contact-info">
-          <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="m4 6 8 7 8-7"/></svg></div><div><b>Email</b><span>hello@nariplus.in</span></div></div>
-          <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L7.9 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg></div><div><b>Phone</b><span>+91 98765 43210</span></div></div>
-          <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 22s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="11" r="2.5"/></svg></div><div><b>Address</b><span>Nari Plus HQ, Lucknow, India</span></div></div>
-          <a href="#" class="whatsapp-btn">
-            <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.35 1.29 4.8L2 22l5.42-1.4a9.9 9.9 0 0 0 4.62 1.18h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.64-1.03-5.13-2.9-6.99A9.82 9.82 0 0 0 12.04 2z"/></svg>
-            Chat on WhatsApp
-          </a>
-          <div class="social-row">
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
-            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          </div>
-          <div class="map-placeholder">Map preview — Lucknow, India</div>
+      <button class="slider-arrow next" onclick="moveSlide(1)" aria-label="Next">&#8250;</button>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="band band-lav">
+  <div class="container">
+    <div class="sec-head reveal up">
+      <p class="eyebrow" style="justify-content:center;">Meet The Team</p>
+      <h2>The people behind Nari Plus.</h2>
+      <p>A small, obsessive team of makers, testers and dreamers — building the pad we always wished existed.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal up">
+        <div class="team-avatar">RS</div>
+        <h3>Riya Sharma</h3>
+        <span class="team-role">Founder &amp; CEO</span>
+        <p class="team-bio">Leads the mission to bring international-grade comfort to every Indian woman, at an honest price.</p>
+        <div class="team-social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+        </div>
+      </div>
+      <div class="team-card reveal up">
+        <div class="team-avatar">AK</div>
+        <h3>Arjun Kapoor</h3>
+        <span class="team-role">Head of Product &amp; R&amp;D</span>
+        <p class="team-bio">Obsesses over every layer of the pad — from absorbent core chemistry to the softest top sheet.</p>
+        <div class="team-social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+        </div>
+      </div>
+      <div class="team-card reveal up">
+        <div class="team-avatar">MN</div>
+        <h3>Meera Nair</h3>
+        <span class="team-role">Quality &amp; Compliance Lead</span>
+        <p class="team-bio">Ensures every batch clears dermatological and safety testing before it ever reaches a shelf.</p>
+        <div class="team-social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+        </div>
+      </div>
+      <div class="team-card reveal up">
+        <div class="team-avatar">DV</div>
+        <h3>Dev Verma</h3>
+        <span class="team-role">Customer Experience Lead</span>
+        <p class="team-bio">Champions the voice of every woman who writes in — turning feedback into better packs.</p>
+        <div class="team-social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
         </div>
       </div>
     </div>
@@ -861,6 +930,58 @@ footer .container{position:relative;z-index:1;}
   </div>
 </section>
 
+<!-- CONTACT -->
+<section id="contact" class="band band-lav">
+  <div class="container">
+    <div class="sec-head reveal up">
+      <p class="eyebrow" style="justify-content:center;">Get In Touch</p>
+      <h2>We'd love to hear from you.</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card reveal left">
+        <h3>Send a message</h3>
+        <form id="contactForm" onsubmit="return handleContact(event)">
+          <div class="form-field"><input type="text" placeholder="Your Name" required></div>
+          <div class="form-field"><input type="email" placeholder="Your Email" required></div>
+          <div class="form-field"><textarea placeholder="Your Message" required></textarea></div>
+          <button type="submit" class="btn-primary" data-ripple style="width:100%;">Send Message</button>
+          <p id="contactMsg" style="margin-top:14px;font-size:13px;color:var(--rose-gold-deep);display:none;">Thank you — we'll be in touch shortly.</p>
+        </form>
+      </div>
+      <div class="reveal right">
+        <div class="contact-info">
+          <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="m4 6 8 7 8-7"/></svg></div><div><b>Email</b><span>hello@nariplus.in</span></div></div>
+          <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L7.9 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg></div><div><b>Phone</b><span>+91-xxxxxxxxxx</span></div></div>
+          <div class="info-row"><div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 22s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="11" r="2.5"/></svg></div><div><b>Address</b><span>Nari Plus HQ, Begusarai, Bihar</span></div></div>
+          <a href="#" class="whatsapp-btn">
+            <svg viewBox="0 0 24 24" fill="#fff" width="18" height="18"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.35 1.29 4.8L2 22l5.42-1.4a9.9 9.9 0 0 0 4.62 1.18h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.64-1.03-5.13-2.9-6.99A9.82 9.82 0 0 0 12.04 2z"/></svg>
+            Chat on WhatsApp
+          </a>
+          <div class="social-row">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          </div>
+          <div class="map-placeholder" aria-label="Map preview — Begusarai, Bihar">
+            <svg viewBox="0 0 320 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="var(--lavender-deep)" stroke-width="1" opacity="0.6">
+                <path d="M0 30h320M0 70h320M0 110h320"/>
+                <path d="M50 0v150M130 0v150M210 0v150M290 0v150"/>
+              </g>
+              <path d="M0 95 C60 70,90 110,150 85 C210 60,250 100,320 78" stroke="var(--rose-gold-deep)" stroke-width="2.4" opacity="0.55"/>
+              <path d="M20 0 C40 40,10 90,70 150" stroke="var(--rose-gold-deep)" stroke-width="2.4" opacity="0.4"/>
+              <circle cx="160" cy="72" r="7" fill="var(--rose-gold-deep)"/>
+              <path d="M160 72 L160 50" stroke="var(--rose-gold-deep)" stroke-width="2.4"/>
+              <path d="M160 42 c-9 0-16 7-16 16 0 12 16 26 16 26s16-14 16-26c0-9-7-16-16-16z" fill="var(--rose-gold-deep)"/>
+              <circle cx="160" cy="58" r="5.5" fill="#fff"/>
+              <text x="160" y="112" text-anchor="middle" font-family="Manrope, sans-serif" font-size="11" font-weight="700" fill="var(--plum-soft)">Begusarai, Bihar</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MOBILE APP -->
 <section id="app" class="band band-white">
   <div class="container">
@@ -868,6 +989,13 @@ footer .container{position:relative;z-index:1;}
       <div class="app-phone" aria-hidden="true">
         <div class="app-phone-brand">NARI PLUS</div>
         <p class="app-phone-copy">Your everyday care companion</p>
+        <svg class="app-phone-chart" viewBox="0 0 180 60" fill="none" aria-hidden="true">
+          <polyline points="4,44 28,30 52,38 76,18 100,26 124,10 152,20 176,6" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="124" cy="10" r="4" fill="#fff"/>
+          <g fill="rgba(255,255,255,0.75)" font-family="Manrope, sans-serif" font-size="6">
+            <text x="4" y="55">Mon</text><text x="70" y="55">Thu</text><text x="150" y="55">Sun</text>
+          </g>
+        </svg>
         <div class="app-phone-card">Cycle care, made simple<span>Track your essentials and discover care tips.</span></div>
         <div class="app-phone-card">Comfort reminders<span>A little support, right when you need it.</span></div>
       </div>
@@ -904,7 +1032,7 @@ footer .container{position:relative;z-index:1;}
         </div>
       </div>
       <div class="foot-col"><h5>Product</h5><a href="#features">Features</a><a href="#technology">Technology</a><a href="#benefits">Benefits</a><a href="#buy">Buy Now</a></div>
-      <div class="foot-col"><h5>Company</h5><a href="#about">About</a><a href="#reviews">Reviews</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="#about">About</a><a href="#team">Team</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></div>
       <div class="foot-col"><h5>Policies</h5><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Shipping Policy</a><a href="#">Returns</a></div>
     </div>
     <div class="foot-bottom">
@@ -1031,43 +1159,26 @@ function updateSlider(){
 function moveSlide(dir){slideIndex=(slideIndex+dir+slideCount)%slideCount;updateSlider();}
 setInterval(()=>moveSlide(1),6000);
 
-// Lightbox
-const lightboxColors={tile1:'linear-gradient(160deg,#c9b7f0,#dba79f)',tile2:'linear-gradient(160deg,#dba79f,#f7d9e6)',tile3:'linear-gradient(160deg,#5a3f63,#c9b7f0)',tile4:'linear-gradient(160deg,#c1837a,#eee7fb)',tile5:'linear-gradient(160deg,#eee7fb,#c1837a)',tile6:'linear-gradient(160deg,#f7d9e6,#5a3f63)'};
-function openLightbox(id){
-  const lb=document.getElementById('lightbox'), inner=document.getElementById('lightboxInner');
-  inner.style.background=lightboxColors[id];
-  lb.classList.add('open');
-}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
-document.getElementById('lightbox').addEventListener('click',(e)=>{if(e.target.id==='lightbox') closeLightbox();});
-
-// Gallery carousel controls
-function scrollGallery(direction){
-  const gallery=document.getElementById('galleryScroll');
-  if(gallery) gallery.scrollBy({left:direction*320,behavior:'smooth'});
-}
-
-// Continuous gallery scroll
-const galleryScroll=document.getElementById('galleryScroll');
-if(galleryScroll && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-  [...galleryScroll.children].forEach(tile=>galleryScroll.appendChild(tile.cloneNode(true)));
-  galleryScroll.style.scrollBehavior='auto';
-  let galleryPaused=false, lastGalleryFrame=0, galleryPosition=galleryScroll.scrollLeft;
-  const scrollGalleryContinuously=(time)=>{
-    if(!galleryPaused){
-      const elapsed=Math.min(time-lastGalleryFrame,40);
-      galleryPosition+=elapsed*0.04;
-      if(galleryPosition>=galleryScroll.scrollWidth/2) galleryPosition-=galleryScroll.scrollWidth/2;
-      galleryScroll.scrollLeft=galleryPosition;
-    }
-    lastGalleryFrame=time;
-    requestAnimationFrame(scrollGalleryContinuously);
+// Coupon + share
+function copyCoupon(btn){
+  const code='NARI10';
+  const done=()=>{
+    const original=btn.textContent;
+    btn.textContent='Copied!';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent=original;btn.classList.remove('copied');},2000);
   };
-  galleryScroll.addEventListener('mouseenter',()=>{galleryPaused=true;galleryPosition=galleryScroll.scrollLeft;});
-  galleryScroll.addEventListener('mouseleave',()=>galleryPaused=false);
-  galleryScroll.addEventListener('touchstart',()=>{galleryPaused=true;galleryPosition=galleryScroll.scrollLeft;},{passive:true});
-  galleryScroll.addEventListener('touchend',()=>galleryPaused=false,{passive:true});
-  requestAnimationFrame(scrollGalleryContinuously);
+  if(navigator.clipboard) navigator.clipboard.writeText(code).then(done).catch(done);
+  else done();
+}
+function copyShareLink(btn){
+  const url=window.location.href;
+  const done=()=>{
+    btn.classList.add('copied');
+    setTimeout(()=>btn.classList.remove('copied'),2000);
+  };
+  if(navigator.clipboard) navigator.clipboard.writeText(url).then(done).catch(done);
+  else done();
 }
 
 // Contact form
