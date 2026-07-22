@@ -55,11 +55,11 @@ header.nav{
   background:transparent;
 }
 header.nav.solid{
-  background:rgba(255,255,255,0.75);
+  background:rgba(12,12,12,0.94);
   backdrop-filter:blur(16px) saturate(160%);
-  box-shadow:0 8px 30px -12px rgba(154,110,140,0.25);
+  box-shadow:0 8px 30px -12px rgba(245,197,24,0.32);
   padding:14px 0;
-  border-bottom:1px solid rgba(219,167,159,0.2);
+  border-bottom:1px solid rgba(245,197,24,0.38);
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 32px;}
 .brand{display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;color:var(--plum);}
@@ -78,6 +78,14 @@ header.nav.solid{
 .nav-buy:hover{transform:translateY(-2px);}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;}
 .burger span{width:24px;height:2px;background:var(--plum);border-radius:2px;}
+header.nav.solid .brand{color:#fff;}
+header.nav.solid .brand svg path{stroke:#f5c518;}
+header.nav.solid .navlinks a{color:rgba(255,255,255,0.82);}
+header.nav.solid .navlinks a:hover,header.nav.solid .navlinks a.active{color:#f5c518;}
+header.nav.solid .navlinks a::after{background:#f5c518;}
+header.nav.solid .navlinks a.nav-buy{background:#f5c518;color:#111;box-shadow:0 12px 24px -10px rgba(245,197,24,0.5);}
+header.nav.solid .burger span{background:#f5c518;}
+@media (max-width:980px){header.nav.solid .navlinks{background:#111;}}
 @media (max-width:980px){
   .navlinks{position:fixed;top:0;right:0;height:100vh;width:78%;max-width:340px;
     background:#fff;flex-direction:column;justify-content:center;align-items:flex-start;
@@ -108,9 +116,10 @@ header.nav.solid{
   min-height:100vh;display:flex;align-items:center;
   padding:150px 0 80px;position:relative;overflow:hidden;
   background:
-    radial-gradient(circle at calc(85% + var(--hero-x)) calc(15% + var(--hero-y)), rgba(201,183,240,0.5), transparent 45%),
-    radial-gradient(circle at calc(8% - var(--hero-x)) calc(85% - var(--hero-y)), rgba(219,167,159,0.35), transparent 50%),
-    linear-gradient(180deg, var(--blush) 0%, var(--white) 100%);
+    radial-gradient(ellipse at calc(86% + var(--hero-x)) calc(16% + var(--hero-y)), rgba(250,204,70,0.78) 0%, rgba(250,204,70,0.38) 25%, transparent 53%),
+    radial-gradient(ellipse at calc(12% - var(--hero-x)) calc(84% - var(--hero-y)), rgba(236,163,188,0.54) 0%, rgba(236,163,188,0.22) 29%, transparent 56%),
+    radial-gradient(ellipse at 48% 48%, rgba(202,183,241,0.5) 0%, transparent 46%),
+    linear-gradient(135deg, #fffbed 0%, #fff1c7 42%, #f5eaff 100%);
 }
 .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center;}
 .hero h1{font-size:clamp(40px,5.6vw,66px);}
@@ -379,6 +388,44 @@ header.nav.solid{
 }
 @media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
 
+/* -------- ONLINE PARTNERS -------- */
+.partner-strip{padding:28px 0 8px;}
+.partner-panel{
+  border-radius:28px;
+  padding:34px 32px;
+  background:
+    radial-gradient(circle at top left, rgba(245,197,24,0.18), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(219,167,159,0.2), transparent 34%),
+    linear-gradient(135deg, #fff 0%, #fffaf0 100%);
+  box-shadow:0 22px 50px -28px rgba(58,36,64,0.22);
+  border:1px solid rgba(219,167,159,0.2);
+}
+.partner-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;margin-bottom:22px;}
+.partner-head h2{font-size:clamp(28px,3.4vw,40px);margin:10px 0 0;}
+.partner-head p{max-width:540px;color:var(--text);font-size:14.5px;line-height:1.7;}
+.partner-badge{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:999px;
+  background:rgba(245,197,24,0.12);color:var(--rose-gold-deep);font-size:11px;font-weight:800;
+  letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;
+}
+.partner-grid{display:grid;grid-template-columns:repeat(5, minmax(0, 1fr));gap:14px;}
+.partner-card{
+  min-height:116px;border-radius:20px;background:#fff;border:1px solid rgba(219,167,159,0.18);
+  box-shadow:0 10px 24px -18px rgba(154,110,140,0.38);padding:18px 16px;display:flex;
+  flex-direction:column;justify-content:space-between;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.partner-card:hover{transform:translateY(-4px);border-color:rgba(245,197,24,0.45);box-shadow:0 16px 30px -18px rgba(58,36,64,0.28);}
+.partner-mark{
+  width:42px;height:42px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--plum),var(--rose-gold-deep));color:#fff;font-size:13px;font-weight:800;letter-spacing:0.04em;
+}
+.partner-name{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-top:14px;}
+.partner-name strong{font-size:16px;color:var(--plum);}
+.partner-name span{font-size:11px;color:var(--text);text-transform:uppercase;letter-spacing:0.08em;}
+@media (max-width:1100px){.partner-grid{grid-template-columns:repeat(3, minmax(0, 1fr));}}
+@media (max-width:720px){.partner-panel{padding:28px 22px;}.partner-head{flex-direction:column;align-items:flex-start;}.partner-grid{grid-template-columns:repeat(2, minmax(0, 1fr));}}
+@media (max-width:480px){.partner-grid{grid-template-columns:1fr;}}
+
 /* -------- MOBILE APP -------- */
 .app-promo{display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;padding:64px;border-radius:32px;background:linear-gradient(135deg,#fff 0%,var(--lavender) 100%);box-shadow:var(--shadow);overflow:hidden;position:relative;}
 .app-promo::after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:rgba(219,167,159,0.2);right:-160px;top:-170px;}
@@ -418,17 +465,21 @@ header.nav.solid{
 @media (max-width:600px){.cta-banner{padding:62px 24px;}.cta-proof{gap:12px;font-size:10px;}}
 
 /* -------- FOOTER -------- */
-footer{padding:80px 0 34px;background:var(--plum);color:rgba(255,255,255,0.7);}
-.foot-grid{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.12);}
-.foot-brand .brand{color:#fff;}
-.foot-brand p{margin-top:16px;font-size:13.5px;line-height:1.7;max-width:280px;color:rgba(255,255,255,0.55);}
-.newsletter{display:flex;margin-top:20px;gap:8px;}
-.newsletter input{flex:1;padding:13px 16px;border-radius:999px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:13px;}
-.newsletter button{background:var(--rose-gold);color:#fff;border:none;padding:13px 20px;border-radius:999px;font-weight:700;font-size:13px;cursor:pointer;}
-.foot-col h5{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--rose-gold);margin-bottom:18px;}
-.foot-col a{display:block;font-size:13.5px;padding:6px 0;color:rgba(255,255,255,0.6);}
-.foot-col a:hover{color:#fff;}
-.foot-bottom{display:flex;justify-content:space-between;padding-top:26px;font-size:12.5px;color:rgba(255,255,255,0.4);flex-wrap:wrap;gap:10px;}
+footer{padding:88px 0 32px;position:relative;overflow:hidden;background:radial-gradient(circle at 88% 0%,rgba(245,197,24,0.18),transparent 28%),radial-gradient(circle at 6% 100%,rgba(193,131,122,0.22),transparent 32%),linear-gradient(135deg,#0b0b0b 0%,#1a111c 54%,#11100c 100%);color:rgba(255,255,255,0.7);}
+footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#f5c518 22%,#fff0a6 50%,#f5c518 78%,transparent);}
+footer .container{position:relative;z-index:1;}
+.foot-grid{display:grid;grid-template-columns:1.45fr repeat(3,1fr);gap:46px;padding:0 0 48px;border-bottom:1px solid rgba(255,255,255,0.14);}
+.foot-brand .brand{color:#fff;font-size:28px;}.foot-brand .brand svg path{stroke:#f5c518;}
+.foot-brand p{margin-top:17px;font-size:13.5px;line-height:1.75;max-width:300px;color:rgba(255,255,255,0.62);}
+.foot-highlights{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}.foot-highlights span{border:1px solid rgba(245,197,24,0.3);background:rgba(245,197,24,0.08);padding:7px 9px;border-radius:999px;color:#f7dfa1;font-size:10px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;}
+.newsletter{display:flex;margin-top:22px;gap:8px;padding:5px;border:1px solid rgba(255,255,255,0.14);border-radius:999px;background:rgba(255,255,255,0.06);max-width:330px;}
+.newsletter input{min-width:0;flex:1;padding:10px 11px;border:0;outline:0;background:transparent;color:#fff;font-size:13px;}.newsletter input::placeholder{color:rgba(255,255,255,0.42);}
+.newsletter button{background:linear-gradient(135deg,#f7d85a,#eab308);color:#17130a;border:none;padding:11px 17px;border-radius:999px;font-weight:800;font-size:12px;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease;}.newsletter button:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(245,197,24,0.28);}
+.foot-col h5{font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:#f5c518;margin:7px 0 18px;}
+.foot-col a{display:block;width:max-content;font-size:13.5px;padding:7px 0;color:rgba(255,255,255,0.63);transition:color .2s ease,transform .2s ease;}.foot-col a:hover{color:#fff;transform:translateX(4px);}
+.foot-bottom{display:flex;justify-content:space-between;padding-top:25px;font-size:12px;color:rgba(255,255,255,0.45);flex-wrap:wrap;gap:10px;}.foot-bottom span:last-child{color:#f1d47a;}
+@media (max-width:850px){.foot-grid{grid-template-columns:repeat(2,1fr);gap:34px;}.foot-brand{grid-column:1/-1;}}
+@media (max-width:520px){footer{padding-top:64px;}.foot-grid{grid-template-columns:1fr;gap:24px;}.newsletter{max-width:100%;}.foot-col h5{margin-bottom:9px;}.foot-bottom{padding-top:20px;}}
 
 /* -------- back to top -------- */
 .back-top{
@@ -786,6 +837,30 @@ footer{padding:80px 0 34px;background:var(--plum);color:rgba(255,255,255,0.7);}
   </div>
 </section>
 
+<!-- ONLINE PARTNERS -->
+<section id="partners" class="band band-white">
+  <div class="container">
+    <div class="partner-strip reveal up">
+      <div class="partner-panel">
+        <div class="partner-head">
+          <div>
+            <p class="eyebrow">Online Partners</p>
+            <h2>Shop Nari Plus on trusted online marketplaces.</h2>
+          </div>
+          <span class="partner-badge">Fast delivery network</span>
+        </div>
+        <div class="partner-grid" aria-label="Online partners">
+          <div class="partner-card"><div class="partner-mark">A</div><div class="partner-name"><strong>Amazon</strong><span>Marketplace</span></div></div>
+          <div class="partner-card"><div class="partner-mark">M</div><div class="partner-name"><strong>Myntra</strong><span>Marketplace</span></div></div>
+          <div class="partner-card"><div class="partner-mark">F</div><div class="partner-name"><strong>Flipkart</strong><span>Marketplace</span></div></div>
+          <div class="partner-card"><div class="partner-mark">S</div><div class="partner-name"><strong>Shopsy</strong><span>Marketplace</span></div></div>
+          <div class="partner-card"><div class="partner-mark">MS</div><div class="partner-name"><strong>Meesho</strong><span>Marketplace</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MOBILE APP -->
 <section id="app" class="band band-white">
   <div class="container">
@@ -819,6 +894,10 @@ footer{padding:80px 0 34px;background:var(--plum);color:rgba(255,255,255,0.7);}
           Nari Plus
         </a>
         <p>Premium hygiene care, made for every woman, every day.</p>
+        <div class="foot-highlights">
+          <span>Dermatologically tested</span>
+          <span>Made in India</span>
+        </div>
         <div class="newsletter">
           <input type="email" placeholder="Your email">
           <button>Join</button>
