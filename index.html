@@ -973,19 +973,20 @@ const galleryScroll=document.getElementById('galleryScroll');
 if(galleryScroll && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   [...galleryScroll.children].forEach(tile=>galleryScroll.appendChild(tile.cloneNode(true)));
   galleryScroll.style.scrollBehavior='auto';
-  let galleryPaused=false, lastGalleryFrame=0;
+  let galleryPaused=false, lastGalleryFrame=0, galleryPosition=galleryScroll.scrollLeft;
   const scrollGalleryContinuously=(time)=>{
     if(!galleryPaused){
       const elapsed=Math.min(time-lastGalleryFrame,40);
-      galleryScroll.scrollLeft+=elapsed*0.025;
-      if(galleryScroll.scrollLeft>=galleryScroll.scrollWidth/2) galleryScroll.scrollLeft-=galleryScroll.scrollWidth/2;
+      galleryPosition+=elapsed*0.04;
+      if(galleryPosition>=galleryScroll.scrollWidth/2) galleryPosition-=galleryScroll.scrollWidth/2;
+      galleryScroll.scrollLeft=galleryPosition;
     }
     lastGalleryFrame=time;
     requestAnimationFrame(scrollGalleryContinuously);
   };
-  galleryScroll.addEventListener('mouseenter',()=>galleryPaused=true);
+  galleryScroll.addEventListener('mouseenter',()=>{galleryPaused=true;galleryPosition=galleryScroll.scrollLeft;});
   galleryScroll.addEventListener('mouseleave',()=>galleryPaused=false);
-  galleryScroll.addEventListener('touchstart',()=>galleryPaused=true,{passive:true});
+  galleryScroll.addEventListener('touchstart',()=>{galleryPaused=true;galleryPosition=galleryScroll.scrollLeft;},{passive:true});
   galleryScroll.addEventListener('touchend',()=>galleryPaused=false,{passive:true});
   requestAnimationFrame(scrollGalleryContinuously);
 }
